@@ -1,0 +1,24 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory name="foo">
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/java87</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">root</property>
+		<!-- 配置方言  ，这个方言的配置是必须要有的-->
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		<!-- 配置数据库的是否由Hibernate帮助我们的方式 -->
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		<!-- 展示sql -->
+		<property name="hibernate.show_sql">true</property>
+		<!-- sql的格式化 
+		<property name="hibernate.format_sql">true</property>-->
+		<!-- 使用getCurrentSession() -->
+		<property name="hibernate.current_session_context_class">thread</property>
+		<!-- 告诉hibernate框架，映射文件在什么地方 -->
+		<mapping resource="com/beans/UserInfo.hbm.xml"/>
+	</session-factory>
+</hibernate-configuration>
